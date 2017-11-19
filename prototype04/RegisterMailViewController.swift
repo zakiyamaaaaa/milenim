@@ -91,9 +91,6 @@ class RegisterMailViewController: UIViewController,UITextFieldDelegate,UITextVie
                 
                 self.errorMessageLabel?.isHidden = false
                 
-                //The email address is badly formatted.
-                //The password must be 6 characters long or more
-                //The email address is already in use by another account.
             }
         })
     }

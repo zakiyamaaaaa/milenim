@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nxn-rC-3Sr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nxn-rC-3Sr">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -258,7 +258,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nxn-rC-3Sr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQz-t2-yPI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
@@ -605,10 +605,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assessmentImage" translatesAutoresizingMaskIntoConstraints="NO" id="vsT-YF-FBc">
-                                <rect key="frame" x="40" y="63.5" width="240" height="341"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asessmentImage" translatesAutoresizingMaskIntoConstraints="NO" id="vsT-YF-FBc">
+                                <rect key="frame" x="-160" y="84" width="640" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Rza-0a-HJv"/>
+                                    <constraint firstAttribute="height" constant="300" id="Vlf-sH-Uu7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g65-Sr-HeY">
@@ -626,7 +626,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録内容を審査中です" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeO-Jc-xhE">
-                                <rect key="frame" x="58" y="404.5" width="204" height="24"/>
+                                <rect key="frame" x="58" y="384" width="204" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1063,7 +1063,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Q5-4u-JF7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGg-yY-pqP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
@@ -1984,7 +1984,7 @@
         <image name="RegisterFormThird" width="510" height="85"/>
         <image name="anonymous_43" width="400" height="300"/>
         <image name="appNameImg" width="662" height="140"/>
-        <image name="assessmentImage" width="320" height="341"/>
+        <image name="asessmentImage" width="640" height="984"/>
         <image name="camera-circle" width="180" height="180"/>
         <image name="edit-circle_v2" width="180" height="180"/>
         <image name="register_recruiter" width="540" height="540"/>
@@ -1993,8 +1993,8 @@
         <image name="user-icon" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kFh-V2-nkM"/>
-        <segue reference="GJJ-K5-rJY"/>
         <segue reference="NM9-kV-GrZ"/>
+        <segue reference="GJJ-K5-rJY"/>
+        <segue reference="kFh-V2-nkM"/>
     </inferredMetricsTieBreakers>
 </document>
