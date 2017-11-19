@@ -42,7 +42,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
         alert.addTextField(configurationHandler: { (UITextField) in
             UITextField.placeholder = "メールアドレス"
             
-            
         })
         
         
@@ -107,6 +106,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
         guard let password = passwordTextField.text else{return}
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (FIRUser, error) in
+            
+            
             if error == nil{
                 if FIRUser?.isEmailVerified != nil{
 //                    self.RegisterUser()
@@ -129,43 +130,28 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
                         self.show(vc, sender: nil)
                     }
                     
-                    
-                    
                 }else{
 //                    self.validationAlert()
                     self.errorMessageLabel.isHidden = false
                     self.errorMessageLabel.text = "メールアドレスの認証がまだできていません。"
                 }
-            }else{
-                print(error!.localizedDescription)
+            }
+            
+            //エラー処理
+            if let error = error{
+                let nsError = error as NSError
                 
-                if error!.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."{
+                switch nsError.code{
+                case 17011:
                     self.errorMessageLabel.isHidden = false
                     self.errorMessageLabel.text = "登録されていないメールアドレスです"
-                }
-                
-                if error!.localizedDescription == "The email address is badly formatted."{
-                    self.errorMessageLabel.isHidden = false
-                    self.errorMessageLabel.text = "登録されていないメールアドレスです"
-                }
-                
-                if error!.localizedDescription == "The password is invalid or the user does not have a password."{
+                case 17009:
                     self.errorMessageLabel.isHidden = false
                     self.errorMessageLabel.text = "パスワードが違います"
+                default:
+                    break
                 }
-//                print(ErrorUserInfoKey.RawValue())
-//                print(AuthErrorCode.emailAlreadyInUse)
-//                print(AuthErrorCode)
-//                print(AuthErrors)
-//                if Error.debugDescription == AuthErrorCode.invalidEmail{
-//                    print("hoge")
-//                }
-//                if Error == AuthErrorCode.invalidEmail{
-//                    print("hogea")
-//                }
                 
-//                self.verificationErrorLabel.text = Error!.localizedDescription
-//                self.verificationErrorLabel.isHidden = false
             }
             
         })

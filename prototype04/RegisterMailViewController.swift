@@ -53,8 +53,8 @@ class RegisterMailViewController: UIViewController,UITextFieldDelegate,UITextVie
         let inputPassword = passwordTextField.text
         
         //Firebaseにメール認証でのユーザー登録をする
-        Auth.auth().createUser(withEmail: inputEmail!, password: inputPassword!, completion: { (user, Error) in
-            if Error == nil{
+        Auth.auth().createUser(withEmail: inputEmail!, password: inputPassword!, completion: { (user, error) in
+            if error == nil{
                 user?.sendEmailVerification(completion: { (Error) in
                     if Error == nil{
                         //認証メール送信成功
@@ -73,17 +73,24 @@ class RegisterMailViewController: UIViewController,UITextFieldDelegate,UITextVie
                 //ユーザー入力内容エラー
                 //アラート表示
                 
-                self.errorMessageLabel?.isHidden = false
-                if Error.debugDescription == "The email address is already in use by another account."{
-                    self.errorMessageLabel.text = "このアドレスはすでに登録されています"
-                }
-                if Error.debugDescription == "The password must be 6 characters long or more"{
-                    self.errorMessageLabel.text = "パスワードは６文字以上で入力してください"
+                if let error = error{
+                    let nsError = error as NSError
+                    
+                    
+                    switch nsError.code{
+                    case 17007:
+                        self.errorMessageLabel.text = "このアドレスはすでに登録されています"
+                    case 17008:
+                        self.errorMessageLabel.text = "無効なメールアドレスです"
+                    case 17026:
+                        self.errorMessageLabel.text = "パスワードは６文字以上で入力してください"
+                    default:
+                        break
+                    }
                 }
                 
-                if Error.debugDescription == "The email address is badly formatted."{
-                    self.errorMessageLabel.text = "無効なメールアドレスです"
-                }
+                self.errorMessageLabel?.isHidden = false
+                
                 //The email address is badly formatted.
                 //The password must be 6 characters long or more
                 //The email address is already in use by another account.
