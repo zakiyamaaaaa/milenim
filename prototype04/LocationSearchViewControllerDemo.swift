@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import Firebase
+import Alamofire
 
 class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransitioningDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate{
 
@@ -38,14 +39,6 @@ class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransit
             a.register(key: .uuid, value: Auth.auth().currentUser?.uid)
         }
         
-        print("now:\(Date())")
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "trialVC") as! UIViewController
-//        vc.modalTransitionStyle = .crossDissolve
-//        vc.modalPresentationStyle = .overFullScreen
-//        self.present(vc, animated: true, completion: nil)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,12 +71,6 @@ class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransit
         
         
         requstLocalePermission()
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "demoMain") as! ContainerViewControllerTest
-//        vc.transitioningDelegate = self
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-//            self.present(vc, animated: true, completion: nil)
-//        }
     }
     
     //位置情報取得のパーミッション→リクエスト
@@ -177,9 +164,13 @@ extension LocationSearchViewControllerDemo{
         
         let postData:[String:Any] = ["uuid":inuuid,"status":myStatus]
         var returnData:[Any]?
+        let parameter:Parameters = postData
         
-//        guard let requestURL = URL(string: "http://52.163.126.71:80/test/requestMessageUserList.php") else {return}
-        guard let requestURL = URL(string: "http://localhost:8888/test/requestMessageUserList.php") else {return}
+        let base = APIUrl.baseUrl
+        let requestUrl = APIUrl.requestUrl.requestMessageUserList.rawValue
+        let url = base + requestUrl
+        guard let requestURL = URL(string: url) else {return}
+//        guard let requestURL = URL(string: "http://localhost:8888/test/requestMessageUserList.php") else {return}
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -208,48 +199,37 @@ extension LocationSearchViewControllerDemo{
     //locationVCで使用
     func requestCard(uuid:String,lat:Double,lng:Double){
         let postData:[String:Any] = ["uuid":uuid,"lat":lat,"lng":lng,"status":myStatus]
-        print(postData)
-        var returnData:[Any]?
+        let parameter:Parameters = postData
         
-//        guard let requestURL = URL(string: "http://52.163.126.71:80/test/updateLocation.php") else {return}
-        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
-        var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        do{
-            request.httpBody = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
-            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                
-                do{
-                    returnData = try JSONSerialization.jsonObject(with: data!, options: []) as? [Any]
-                    //app deleagetに取得したデータを格納
+        let base = APIUrl.baseUrl
+        let requestUrl = APIUrl.requestUrl.updateLocation.rawValue
+        let url = base + requestUrl
+        
+//        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
+
+        let header:HTTPHeaders = ["Content-Type":"application/json"]
+        Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            
+            switch response.result{
+            case .success:
+                print("success")
+                if let json = response.result.value{
+                    
                     let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                    app.cardListDelegate = returnData
+                    app.cardListDelegate = json as? [Any]
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let vc = storyboard.instantiateViewController(withIdentifier: "demoMain") as! ContainerViewControllerTest
                     vc.transitioningDelegate = self
-                    
-                    //serverに近くのユーザー問い合わせが返ってこないとnilエラーになるのでわざと遅らせている
-                    //location取得してるときにrequestCardが終わってから遷移するように
-                    
-                    
-                    
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.present(vc, animated: true, completion: nil)
                     }
-                    
-                    
-                }catch{
-                    print("json decode error:\(error.localizedDescription)")
                 }
                 
-            })
-            
-            task.resume()
-        }catch{
-            print("error:\(error.localizedDescription)")
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
         }
     }
     

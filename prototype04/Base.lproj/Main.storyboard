@@ -1043,6 +1043,24 @@
             </objects>
             <point key="canvasLocation" x="2929" y="1080"/>
         </scene>
+        <!--Alamofire View Controller-->
+        <scene sceneID="dqT-XO-VAb">
+            <objects>
+                <viewController id="ENh-Hu-fzF" customClass="AlamofireViewController" customModule="prototype04" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g7U-Lf-Tid"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lD-UF-2U4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ml-vI-T4g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5g-sd-o87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2294" y="240"/>
+        </scene>
         <!--Location Search View Controller Demo-->
         <scene sceneID="2yj-RS-Ebt">
             <objects>
