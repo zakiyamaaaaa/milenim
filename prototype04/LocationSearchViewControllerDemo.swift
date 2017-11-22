@@ -40,14 +40,6 @@ class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransit
             a.register(key: .uuid, value: Auth.auth().currentUser?.uid)
         }
         
-        print("now:\(Date())")
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "trialVC") as! UIViewController
-//        vc.modalTransitionStyle = .crossDissolve
-//        vc.modalPresentationStyle = .overFullScreen
-//        self.present(vc, animated: true, completion: nil)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
