@@ -164,7 +164,7 @@ class MainViewControllerTest: UIViewController {
     }
     
         
-    func tappedCard(gestureRecognizer:UITapGestureRecognizer){
+    @objc func tappedCard(gestureRecognizer:UITapGestureRecognizer){
         
         switch myStatus {
         case 1:
@@ -253,7 +253,7 @@ class MainViewControllerTest: UIViewController {
     
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     //gesture関係-----------------------------------------------------------------
-    func choiceGesture(sender:UIPanGestureRecognizer){
+    @objc func choiceGesture(sender:UIPanGestureRecognizer){
         switch sender.state {
         case .began:
             snapAnimator.removeAllBehaviors()

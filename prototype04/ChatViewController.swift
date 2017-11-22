@@ -61,7 +61,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     var keyboardheight:CGFloat!
-    func getKeyboardHeight(notification: Notification) {
+    @objc func getKeyboardHeight(notification: Notification) {
         
         if let userInfo = notification.userInfo {
             if let keyboardFrameInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
@@ -91,7 +91,7 @@ class ChatViewController: JSQMessagesViewController {
         
     }
     
-    func callMethod(){
+    @objc func callMethod(){
         let alert:UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let blockAction = UIAlertAction(title: "非表示にする", style: .default) { (action) in
             let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate

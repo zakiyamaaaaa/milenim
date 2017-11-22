@@ -126,11 +126,11 @@ final class AvPlayerView:UIView{
         let layer = self.layer as! AVPlayerLayer
         switch(gravity) {
         case .resizeAspect:
-            layer.videoGravity = AVLayerVideoGravityResizeAspect
+            layer.videoGravity = AVLayerVideoGravity.resizeAspect
         case .resizeAspectFill:
-            layer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         case .resize:
-            layer.videoGravity = AVLayerVideoGravityResize
+            layer.videoGravity = AVLayerVideoGravity.resize
         }
     }
     

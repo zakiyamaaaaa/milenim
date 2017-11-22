@@ -127,7 +127,7 @@ class PreviewViewController: UIViewController {
     }
     
     //カードを選択したとき
-    func choiceGesture(sender:UIPanGestureRecognizer){
+    @objc func choiceGesture(sender:UIPanGestureRecognizer){
         switch sender.state {
         case .began:
             snapAnimator.removeAllBehaviors()

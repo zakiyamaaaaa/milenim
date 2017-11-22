@@ -85,7 +85,7 @@ class UILabelBtmBorder: UIView,UITextFieldDelegate,UIPickerViewDelegate,UIPicker
     }
     
     
-    func done(){
+    @objc func done(){
         print(self.infoTextField.text)
         self.flag = true
         self.endEditing(true)

@@ -49,7 +49,7 @@ class InquiryViewController: UIViewController,UITextViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func closeKeyboard(sender: UITextView){
+    @objc func closeKeyboard(sender: UITextView){
         //キーボードを隠す
         contentTextView.resignFirstResponder()
     }

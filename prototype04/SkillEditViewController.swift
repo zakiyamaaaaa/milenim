@@ -167,7 +167,7 @@ extension SkillEditViewController{
     }
     
     
-    func tagPushed(sender:EditableTagButton){
+    @objc func tagPushed(sender:EditableTagButton){
         sender.removeFromSuperview()
         
         guard let list = tagList else { return }

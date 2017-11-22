@@ -153,7 +153,7 @@ class InterestingViewController: UIViewController,UITextFieldDelegate,UIScrollVi
         }
     }
     
-    func tagButtonTapped(sender:tagButton){
+    @objc func tagButtonTapped(sender:tagButton){
         
         switch sender.enableFlag {
         case true:
@@ -208,7 +208,7 @@ class InterestingViewController: UIViewController,UITextFieldDelegate,UIScrollVi
     
     
     
-    func tagPushed(sender:EditableTagButton){
+    @objc func tagPushed(sender:EditableTagButton){
         
         print("tagpushed")
         guard let list = interestingTagList else { return }

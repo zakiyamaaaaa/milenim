@@ -32,8 +32,8 @@ class RegisterMailViewController: UIViewController,UITextFieldDelegate,UITextVie
         let attributedString = NSMutableAttributedString(string: text)
         let privacyRange = NSString(string: text).range(of: "プライバシーの扱い")
         let termRange = NSString(string: text).range(of: "利用規約")
-        attributedString.addAttribute(NSLinkAttributeName, value: "http://milenim.sakura.ne.jp/privacy/", range: privacyRange)
-        attributedString.addAttribute(NSLinkAttributeName, value: "http://milenim.sakura.ne.jp/terms/", range: termRange)
+        attributedString.addAttribute(NSAttributedStringKey.link, value: "http://milenim.sakura.ne.jp/privacy/", range: privacyRange)
+        attributedString.addAttribute(NSAttributedStringKey.link, value: "http://milenim.sakura.ne.jp/terms/", range: termRange)
         annotationTextView.attributedText = attributedString
         annotationTextView.textAlignment = NSTextAlignment.center
         // Do any additional setup after loading the view.

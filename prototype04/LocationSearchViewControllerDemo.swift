@@ -225,8 +225,8 @@ extension LocationSearchViewControllerDemo{
         print(postData)
         var returnData:[Any]?
         
-//        guard let requestURL = URL(string: "http://52.163.126.71:80/test/updateLocation.php") else {return}
-        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
+        guard let requestURL = URL(string: "http://52.163.126.71:80/test/updateLocation.php") else {return}
+//        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

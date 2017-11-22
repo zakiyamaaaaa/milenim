@@ -31,7 +31,7 @@ class ClickableTextView: UITextView {
         self.addGestureRecognizer(tap)
     }
     
-    func myMethodToHandleTap(sender: UITapGestureRecognizer){
+    @objc func myMethodToHandleTap(sender: UITapGestureRecognizer){
         
         let myTextView = sender.view as! UITextView
         let layoutManager = myTextView.layoutManager

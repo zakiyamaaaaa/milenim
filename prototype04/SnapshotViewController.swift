@@ -63,7 +63,7 @@ class SnapshotViewController: UIViewController {
     /*
      Buttonが押された時に呼ばれるメソッド.
      */
-    func onClickMyButton(sender: UIButton) {
+    @objc func onClickMyButton(sender: UIButton) {
         // キャプチャ画像を取得.
 //        let myImage = myLabel.GetImage() as UIImage
 //        let myImage = myLabel.snapshotView(afterScreenUpdates: true)?

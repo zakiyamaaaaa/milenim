@@ -173,7 +173,7 @@ class MessageViewControllerTest: UIViewController,UITableViewDataSource,UITableV
         return cell
     }
     
-    func goToDetailView(sender:UIButton){
+    @objc func goToDetailView(sender:UIButton){
         selectedTag = sender.tag
         
         switch myStatus {

@@ -371,7 +371,7 @@ class RecruiterProfileViewController: UIViewController,UITableViewDelegate,UIPic
         
     }
     
-    func editButtonTapped(sender:UIButton){
+    @objc func editButtonTapped(sender:UIButton){
         switch sender.tag {
         case 0:
             //何をやってるかの編集画面へ
