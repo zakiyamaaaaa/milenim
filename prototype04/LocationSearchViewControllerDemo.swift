@@ -11,6 +11,7 @@ import CoreLocation
 import Firebase
 import Alamofire
 
+
 class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransitioningDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate{
 
     var myLocationManager:CLLocationManager!
@@ -164,13 +165,9 @@ extension LocationSearchViewControllerDemo{
         
         let postData:[String:Any] = ["uuid":inuuid,"status":myStatus]
         var returnData:[Any]?
-        let parameter:Parameters = postData
         
-        let base = APIUrl.baseUrl
-        let requestUrl = APIUrl.requestUrl.requestMessageUserList.rawValue
-        let url = base + requestUrl
-        guard let requestURL = URL(string: url) else {return}
-//        guard let requestURL = URL(string: "http://localhost:8888/test/requestMessageUserList.php") else {return}
+//        guard let requestURL = URL(string: "http://52.163.126.71:80/test/requestMessageUserList.php") else {return}
+        guard let requestURL = URL(string: "http://localhost:8888/test/requestMessageUserList.php") else {return}
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -199,37 +196,48 @@ extension LocationSearchViewControllerDemo{
     //locationVCで使用
     func requestCard(uuid:String,lat:Double,lng:Double){
         let postData:[String:Any] = ["uuid":uuid,"lat":lat,"lng":lng,"status":myStatus]
-        let parameter:Parameters = postData
+        print(postData)
+        var returnData:[Any]?
         
-        let base = APIUrl.baseUrl
-        let requestUrl = APIUrl.requestUrl.updateLocation.rawValue
-        let url = base + requestUrl
-        
-//        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
-
-        let header:HTTPHeaders = ["Content-Type":"application/json"]
-        Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            
-            switch response.result{
-            case .success:
-                print("success")
-                if let json = response.result.value{
-                    
+//        guard let requestURL = URL(string: "http://52.163.126.71:80/test/updateLocation.php") else {return}
+        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do{
+            request.httpBody = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                
+                do{
+                    returnData = try JSONSerialization.jsonObject(with: data!, options: []) as? [Any]
+                    //app deleagetに取得したデータを格納
                     let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                    app.cardListDelegate = json as? [Any]
+                    app.cardListDelegate = returnData
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let vc = storyboard.instantiateViewController(withIdentifier: "demoMain") as! ContainerViewControllerTest
                     vc.transitioningDelegate = self
+                    
+                    //serverに近くのユーザー問い合わせが返ってこないとnilエラーになるのでわざと遅らせている
+                    //location取得してるときにrequestCardが終わってから遷移するように
+                    
+                    
+                    
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.present(vc, animated: true, completion: nil)
                     }
+                    
+                    
+                }catch{
+                    print("json decode error:\(error.localizedDescription)")
                 }
                 
-            case .failure(let error):
-                
-                print(error.localizedDescription)
-            }
+            })
+            
+            task.resume()
+        }catch{
+            print("error:\(error.localizedDescription)")
         }
     }
     
