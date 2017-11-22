@@ -39,7 +39,11 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+<<<<<<< HEAD
   - Alamofire
+=======
+  - Alamofire (~> 4.5)
+>>>>>>> 3336b396a151bbe88b0b34046c06d0f19f23e2a5
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -58,6 +62,10 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 1f4fe3c546f48463ee1fc768651cd755365acf0b
+=======
+PODFILE CHECKSUM: 7749def40fa7ab0b6ef3fa13e45371c4c9e7e66a
+>>>>>>> 3336b396a151bbe88b0b34046c06d0f19f23e2a5
 
 COCOAPODS: 1.3.1

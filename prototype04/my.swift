@@ -106,9 +106,6 @@ struct my {
                a.introduction.rawValue:introduction,
                a.goodpoint.rawValue:goodpoint,
                a.badpoint.rawValue:badpoint]
-//        if all[a.name.rawValue] != nil{
-//            name = name!
-//        }
         
     }
     
@@ -270,77 +267,6 @@ struct Recruiter{
         UserDefaults.standard.set(value, forKey: key.rawValue)
         print("localにkey:\(key)value:\(value)を保存しました")
         
-//        switch key {
-//        case .name:
-//            name = value as? String
-//        case .birth:
-//            birth = value as? String
-//        case .uuid:
-//            uuid = value as? String
-//        case .education:
-//            education = value as? [Any]
-//        case .encounterd:
-//            encountered = value as? [String]
-//        case .liked:
-//            liked = value as? [String]
-//        case .matched:
-//            matched = value as? [String]
-//        case .message:
-//            message = value as? String
-//        case .introduction:
-//            introduction = value as? String
-//        case .interesting:
-//            interesting = value as? [String]
-//        case .skill:
-//            skill = value as? [String]
-//        case .status:
-//            status = value as? Int
-//        }
-//        
-//        all = [key.rawValue:value]
-        
     }
-    
-//    func getValue(key:studentPropety)->Any?{
-//        
-//        switch key {
-//        case .uuid:
-//            
-//            //            uuid = ud.string(forKey: key.rawValue)
-//            return uuid
-//        case .name:
-//            //            name = ud.string(forKey: key.rawValue)
-//            return name
-//        case .birth:
-//            //            birth = ud.string(forKey: key.rawValue)
-//            return birth
-//        case .encounterd:
-//            //            encountered = ud.stringArray(forKey: key.rawValue)
-//            return encountered
-//        case .liked:
-//            //            liked = ud.stringArray(forKey: key.rawValue)
-//            return liked
-//        case .matched:
-//            //            matched = ud.array(forKey: key.rawValue)
-//            return matched
-//        case .education:
-//            //            education = ud.array(forKey: key.rawValue)
-//            return education
-//        case .interesting:
-//            //            interesting = ud.stringArray(forKey: key.rawValue)
-//            return interesting
-//        case .skill:
-//            //            skill = ud.stringArray(forKey: key.rawValue)
-//            return skill
-//        case .message:
-//            //            message = ud.string(forKey: key.rawValue)
-//            return message
-//        case .status:
-//            return status
-//        case .introduction:
-//            //            introduction = ud.string(forKey: key.rawValue)
-//            return introduction
-//        }
-//    }
 }
 

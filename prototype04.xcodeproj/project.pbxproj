@@ -15,6 +15,8 @@
 		39067BB81EEA19E1004B1BEC /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39067BB71EEA19E1004B1BEC /* RectView.swift */; };
 		390808A21F651FC0009AFEAF /* SwipeResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390808A11F651FC0009AFEAF /* SwipeResultManager.swift */; };
 		391649B01ED2510F003175D1 /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391649AF1ED2510F003175D1 /* ServerConnection.swift */; };
+		39174AFA1FC18A4E00391CED /* APIUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39174AF91FC18A4E00391CED /* APIUrl.swift */; };
+		39174AFC1FC190B500391CED /* AlamofireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39174AFB1FC190B500391CED /* AlamofireViewController.swift */; };
 		391B0A7C1EDFF8E800E9884C /* CropEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391B0A7B1EDFF8E800E9884C /* CropEditViewController.swift */; };
 		391B0A7E1EE05EFC00E9884C /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391B0A7D1EE05EFC00E9884C /* MaskView.swift */; };
 		391B0A801EE071F400E9884C /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391B0A7F1EE071F400E9884C /* SnapshotViewController.swift */; };
@@ -76,7 +78,6 @@
 		39B1052E1ED58AD500DF49A4 /* messageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1052D1ED58AD500DF49A4 /* messageTableViewCell.swift */; };
 		39B315381F0477EA0038F5BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B315371F0477EA0038F5BC /* Images.xcassets */; };
 		39CB9AD11F47252A00C991FE /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB9AD01F47252A00C991FE /* InquiryViewController.swift */; };
-		39CB9B241F493FE900C991FE /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB9B231F493FE900C991FE /* Demo.storyboard */; };
 		39CB9B771F49627300C991FE /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB9B761F49627300C991FE /* DemoViewController.swift */; };
 		39CB9B7E1F49660200C991FE /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 39CB9B7D1F49660200C991FE /* demo.mp4 */; };
 		39CB9B851F49F90800C991FE /* LounchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB9B841F49F90800C991FE /* LounchViewController.swift */; };
@@ -147,6 +148,8 @@
 		39067BB71EEA19E1004B1BEC /* RectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
 		390808A11F651FC0009AFEAF /* SwipeResultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeResultManager.swift; sourceTree = "<group>"; };
 		391649AF1ED2510F003175D1 /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		39174AF91FC18A4E00391CED /* APIUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrl.swift; sourceTree = "<group>"; };
+		39174AFB1FC190B500391CED /* AlamofireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireViewController.swift; sourceTree = "<group>"; };
 		391B0A7B1EDFF8E800E9884C /* CropEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropEditViewController.swift; sourceTree = "<group>"; };
 		391B0A7D1EE05EFC00E9884C /* MaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
 		391B0A7F1EE071F400E9884C /* SnapshotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotViewController.swift; sourceTree = "<group>"; };
@@ -214,7 +217,6 @@
 		39B1052D1ED58AD500DF49A4 /* messageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageTableViewCell.swift; sourceTree = "<group>"; };
 		39B315371F0477EA0038F5BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		39CB9AD01F47252A00C991FE /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
-		39CB9B231F493FE900C991FE /* Demo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
 		39CB9B761F49627300C991FE /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		39CB9B7D1F49660200C991FE /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = demo.mp4; path = ../demo.mp4; sourceTree = "<group>"; };
 		39CB9B841F49F90800C991FE /* LounchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LounchViewController.swift; sourceTree = "<group>"; };
@@ -337,7 +339,6 @@
 				39CD02201F3C7BB600E1273E /* Register.storyboard */,
 				392ED6871EC0C669003EB555 /* Main.storyboard */,
 				392DB5411F43DCAF000A32C2 /* Profile.storyboard */,
-				39CB9B231F493FE900C991FE /* Demo.storyboard */,
 				39CB9B7D1F49660200C991FE /* demo.mp4 */,
 				39CB9B861F4A9BC900C991FE /* First Section */,
 				39CB9B251F49401800C991FE /* Demo */,
@@ -411,6 +412,7 @@
 				39CD021A1F374BE000E1273E /* ProfileViewControllerTest.swift */,
 				392DB4FD1F41348D000A32C2 /* ProfileAnnotationViewController.swift */,
 				39381EA11F2B3DFF00DF8BAD /* MainUserDetailViewController.swift */,
+				39174AFB1FC190B500391CED /* AlamofireViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -534,6 +536,7 @@
 				392ED7231ECE044C003EB555 /* Enum.swift */,
 				39381EA51F2D55EC00DF8BAD /* DateUtils.swift */,
 				39CD027B1F3FCEBA00E1273E /* User.swift */,
+				39174AF91FC18A4E00391CED /* APIUrl.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -733,7 +736,6 @@
 			files = (
 				392ED68E1EC0C669003EB555 /* LaunchScreen.storyboard in Resources */,
 				39B315381F0477EA0038F5BC /* Images.xcassets in Resources */,
-				39CB9B241F493FE900C991FE /* Demo.storyboard in Resources */,
 				392DB5421F43DCAF000A32C2 /* Profile.storyboard in Resources */,
 				3945712D1F03B53D009DD806 /* GoogleService-Info.plist in Resources */,
 				39CB9B7E1F49660200C991FE /* demo.mp4 in Resources */,
@@ -974,6 +976,7 @@
 				39CD02261F3D2B7A00E1273E /* RegisterBasicInfoViewController.swift in Sources */,
 				39381EA01F2B3A5000DF8BAD /* MainViewControllerTest.swift in Sources */,
 				392ED6BE1EC3E529003EB555 /* SampleViewController.swift in Sources */,
+				39174AFC1FC190B500391CED /* AlamofireViewController.swift in Sources */,
 				39CD02741F3E8B6700E1273E /* MustLabel.swift in Sources */,
 				39381EA41F2B44FE00DF8BAD /* userData.swift in Sources */,
 				392DB4FC1F403550000A32C2 /* ChoiceStatusViewController.swift in Sources */,
@@ -990,6 +993,7 @@
 				392DB4FE1F41348D000A32C2 /* ProfileAnnotationViewController.swift in Sources */,
 				39CD021D1F38129B00E1273E /* BelongingEditViewController.swift in Sources */,
 				391649B01ED2510F003175D1 /* ServerConnection.swift in Sources */,
+				39174AFA1FC18A4E00391CED /* APIUrl.swift in Sources */,
 				39034F211EE79C29009FD68E /* TransitionButton.swift in Sources */,
 				39CD026C1F3DE25D00E1273E /* LoginViewController.swift in Sources */,
 				392DB54A1F446446000A32C2 /* ImageAndLabelTableViewCell.swift in Sources */,
