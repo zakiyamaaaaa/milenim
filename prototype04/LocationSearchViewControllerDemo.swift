@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Firebase
 
+
 class LocationSearchViewControllerDemo: UIViewController,UIViewControllerTransitioningDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate{
 
     var myLocationManager:CLLocationManager!
