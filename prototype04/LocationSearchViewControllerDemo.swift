@@ -172,25 +172,51 @@ extension LocationSearchViewControllerDemo{
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do{
-            request.httpBody = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
-            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                
-                
-                do{
-                    returnData = try JSONSerialization.jsonObject(with: data!, options: []) as? [Any]
+        let parameter:Parameters = postData
+        
+        let base = APIUrl.baseUrl
+        let requestUrl = APIUrl.requestUrl.updateLocation.rawValue
+        let url = base + requestUrl
+
+        
+        //        guard let requestURL = URL(string: "http://localhost:8888/test/updateLocation.php") else {return}
+        
+        let header:HTTPHeaders = ["Content-Type":"application/json"]
+        Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            
+            switch response.result{
+            case .success:
+                print("success")
+                if let json = response.result.value{
                     let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                    app.messageList = returnData
-                    
-                    
-                }catch{
-                    print(error.localizedDescription)
+                    app.cardListDelegate = json as? [Any]
                 }
-            })
-            task.resume()
-        }catch{
-            print(error.localizedDescription)
+            case .failure(let error):
+                    
+                    print(error.localizedDescription)
+            }
         }
+
+
+//        do{
+//            request.httpBody = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
+//            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+//
+//
+//                do{
+//                    returnData = try JSONSerialization.jsonObject(with: data!, options: []) as? [Any]
+//                    let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//                    app.messageList = returnData
+//
+//
+//                }catch{
+//                    print(error.localizedDescription)
+//                }
+//            })
+//            task.resume()
+//        }catch{
+//            print(error.localizedDescription)
+//        }
     }
     
     //locationVCで使用
